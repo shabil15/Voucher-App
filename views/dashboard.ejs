@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Voucher Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="bg-gray-100 font-sans min-h-screen">
   <nav class="bg-gradient-to-r from-blue-600 to-indigo-500 text-white shadow-lg">
@@ -59,16 +60,27 @@
   </div>
   
   </div>
-  <% if (typeof success !== "undefined" && success) { %>
-    <script>
+  <script>
+    // Check if the success query parameter is set
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') == 'true') {
+      // Show SweetAlert
       Swal.fire({
+        title: 'Success!',
+        text: 'QR Code Generated Successfully!',
         icon: 'success',
-        title: 'Voucher Created!',
-        text: 'A new voucher has been successfully generated.',
-        confirmButtonColor: '#3085d6',
-        confirmButtonText: 'Okay'
+        confirmButtonText: 'Ok'
       });
-    </script>
-  <% } %>
+    }
+    if (urlParams.get('download') == 'true') {
+      // Show SweetAlert
+      Swal.fire({
+        title: 'Success!',
+        text: 'Exported to pdf Successfully!',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      });
+    }
+  </script>
 </body>
 </html>

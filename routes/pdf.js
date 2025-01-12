@@ -18,11 +18,13 @@ router.get("/generate-pdf/:id", async (req, res) => {
       size: 'A4',
       margin: 0
     });
+    
 
 
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', `attachment; filename=voucher-${voucher.code}.pdf`);
 
+    
     
     doc.pipe(res);
 
@@ -122,7 +124,6 @@ router.get("/generate-pdf/:id", async (req, res) => {
 
     
     doc.end();
-
   } catch (error) {
     console.error('PDF Generation Error:', error);
     res.status(500).json({
