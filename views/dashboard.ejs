@@ -7,7 +7,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 font-sans min-h-screen">
-  <!-- Navbar -->
   <nav class="bg-gradient-to-r from-blue-600 to-indigo-500 text-white shadow-lg">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
       <h1 class="text-3xl font-extrabold tracking-tight">Voucher Dashboard</h1>
@@ -17,9 +16,7 @@
     </div>
   </nav>
 
-  <!-- Dashboard Content -->
   <div class="container mx-auto mt-8 px-4">
-    <!-- Generate QR Code Section -->
     <div class="bg-white shadow-lg rounded-lg p-6 mb-8">
       <h2 class="text-2xl font-bold text-gray-800 mb-4">Generate a New Voucher</h2>
       <form action="/generate" method="POST" class="flex items-center gap-4">
@@ -29,7 +26,6 @@
       </form>
     </div>
 
-    <!-- Inside the Existing Vouchers List -->
 <div class="bg-white shadow-md rounded-lg p-6">
     <h2 class="text-xl font-bold mb-4">Existing Vouchers</h2>
     <% if (vouchers.length > 0) { %>
@@ -42,9 +38,13 @@
             <div class="flex justify-center mb-4">
               <img src="<%= voucher.qrCode %>" alt="QR Code" class="w-32 h-32" />
             </div>
-            <!-- Export PDF Button -->
             <div class="flex justify-center mt-4">
-                <form action="/voucher/export/<%= voucher.id %>" method="GET">
+                <form action="/settings/<%= voucher.id %>" method="GET">
+                    <button type="submit" class="bg-blue-600 mr-5 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium">
+                      Settings
+                    </button>
+                  </form>
+                <form action="/generate-pdf/<%= voucher.id %>" method="GET">
                   <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium">
                     Export as PDF
                   </button>
