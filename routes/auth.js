@@ -9,14 +9,13 @@ router.get("/", (req, res) => {
   res.render("login");
 });
 
-const dummyUser = { username: 'admin', password: '12345' }; // Hardcoded credentials
-
+const dummyUser = { username: 'admin', password: '12345' }; 
 
 router.post('/login', (req, res) => {
   const { username, password } = req.body;
 
   if (username === dummyUser.username && password === dummyUser.password) {
-    req.session.user = dummyUser; // Store user info in session
+    req.session.user = dummyUser; 
     res.redirect('/dashboard');
     console.log('login success');
   } else {
