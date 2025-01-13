@@ -20,7 +20,7 @@ This project is a simple admin dashboard designed to manage vouchers. It allows 
 ### Clone the Repository
 To get started, clone the repository:
 ```bash
-git clone https://github.com/shabil15/Voucher-App
+git clone https://github.com/shabil15/Voucher-App.git
 ```
 
 2. Install the required npm packages:
@@ -63,6 +63,12 @@ npm start
 ```
 
 4. Open your browser and visit `http://localhost:3000` to view the dashboard.
+
+5. For login Use the Hard coded username and password
+```
+username : admin
+password : 12345
+```
 
 ## Usage
 - **Dashboard Interface**: Access the dashboard to manage vouchers. Generate new vouchers with QR codes, search through the list, and delete entries if needed.
